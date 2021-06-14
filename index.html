@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Music</title>
+</head>
+<body>
+    <div id="main-content">
+        <div id="sidebar">
+            <div id="navbar">
+                <div id="logo">
+                    <img src="https://img.icons8.com/color/30/000000/sound-cloud-.png"/>
+                    <span id="app-name">My Music</span>
+                </div>
+                <ul id="navbar-list">
+                    <li class="navbar-items" id="nav-0" onclick="highlight(this)"><img src="https://img.icons8.com/color/20/000000/musical-notes.png"/>Music Library</li>
+                    <li class="navbar-items" id="nav-1" onclick="highlight(this)"><img src="https://img.icons8.com/color/20/000000/playlist.png"/>Playlists <button id="add-playlist-button" onclick="showPlaylistInput()">Add</button></li>
+                    <ul id="playlist-list" style="display: none;">
+                        
+                    </ul>
+                    <input type="text" id="new-playlist-name" style="margin-left: 40px; margin-top: 10px; display: none;" placeholder="Playlist Name">
+                    <li class="navbar-items" id="nav-2" onclick="highlight(this)"><img src="https://img.icons8.com/color/20/000000/filled-like.png"/>Songs you like</li>
+                </ul>
+            </div>
+        </div>
+        <div id="music-content">
+            <div id="search-bar">
+                <img id="search-icon" src="https://img.icons8.com/pastel-glyph/24/000000/search--v2.png"/>
+                <input id="search-text" type="text" placeholder="Search music" onchange="searchMusic(this)"/>
+            </div>
+            <div id="library">
+                <div id="table">
+                    <table id="songs-list-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Song Name</th>
+                                <th>Artist</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="songs-listing"></tbody>
+                      </table>
+                </div>
+                  <audio id="playing-song" src=""></audio>
+                  <div id="audio-controller">
+                      <div id="control-buttons">
+                        <img id="play-prev-song" src="https://img.icons8.com/metro/20/000000/previous.png" onclick="playPrevSong()" disabled/>
+                        <img id="play-button" src="https://img.icons8.com/material-sharp/50/000000/play-button-circled--v1.png" onclick="playSong()"/>
+                        <img id="pause-button" class="not-active" src="https://img.icons8.com/ios-filled/50/000000/circled-pause.png" onclick="pauseSong()"/>
+                        <img id="song-loader" class="not-active" src="https://lh3.googleusercontent.com/proxy/P78uG99B5oA_OQOCSYQYmsqNeKrhHTpQOD9Tg0qe_9sWLXs16I36-mUc9aoNZZIy40FzvOb1iROc-73HFJdFhul1txRf4Bw1xEWDh8Ec7PoW8dGig-Wo-3kE3cW12KXncrDgPw" />
+                        <img id="play-next-song" src="https://img.icons8.com/metro/20/000000/next.png" onclick="playNextSong()"/>
+                      </div>
+                      <div id="music-slider">
+                          <span id="current-time">00:00</span>
+                          <input type="range" min=0 max=100 value=0 id="time-slider">
+                          <span id="end-time">00:00</span>
+                      </div>
+                      <div id="volume">
+                        <img src="https://img.icons8.com/emoji/20/000000/speaker-low-volume.png"/>
+                        <input type="range" min=0 max=100 value=100 id="volume-slider">
+                        <img src="https://img.icons8.com/emoji/20/000000/speaker-high-volume.png"/>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
